@@ -1,38 +1,78 @@
-.App {
-  text-align: center;
+/* Estilos generales */
+body, .app {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f3f6f9; /* Blanco perlado */
+  color: #000; /* Color de texto negro para fondo claro */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.app.dark {
+  background-color: #1f2a44; /* Fondo azul marino para el tema oscuro */
+  color: #fff; /* Texto blanco para fondo oscuro */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
+/* Estilo de los contenedores de las secciones */
+.container {
+  background-color: rgba(135, 206, 250, 0.7); /* Azul cielo transparente */
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  /* Centrando el contenido */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  text-align: center;
 }
 
-.App-link {
-  color: #61dafb;
+/* Estilos del perfil de usuario */
+.user-profile img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.user-profile h2 {
+  margin: 0;
+  color: #1f2a44; /* Azul marino */
+}
+
+/* Estilos de las listas */
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 5px;
+}
+
+/* Estilos del componente de configuración */
+.settings select {
+  padding: 5px;
+  border-radius: 4px;
+  border: 1px solid #1f2a44;
+  background-color: #fff;
+  color: #1f2a44;
+}
+
+.settings h3, .favorite-destinations h3, .activity-history h3 {
+  color: #1f2a44; /* Azul marino */
+}
+
+/* Botón de guardar */
+button {
+  padding: 8px 16px;
+  background-color: #1f2a44; /* Azul marino */
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #2c3e5c; /* Azul marino más oscuro */
 }

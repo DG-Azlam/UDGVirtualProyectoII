@@ -1,31 +1,27 @@
-import logo from './logo.svg';
-import { useState } from "react";
+import React, { useState } from 'react';
+import UserProfile from './components/UserProfile';
+import FavoriteDestinations from './components/FavoriteDestinations';
+import ActivityHistory from './components/ActivityHistory';
+import Settings from './components/Settings';
+import userData from './data';
 import './App.css';
-import ReactDOM from 'react-dom/client';
 
 function App() {
-  const [name,setName] = useState("");
-  const [pass,setPass] = useState("");
+  const [user, setUser] = useState(userData.user);
+  const [destinations, setDestinations] = useState(userData.destinations);
+  const [activities, setActivities] = useState(userData.activities);
+  const [theme, setTheme] = useState('light');
+
+  const updateTheme = (newTheme) => setTheme(newTheme);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        
-        <form>
-          <label> usuario: {"\n"}
-            <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
-          </label>
-          
-          <label> contraseña: {"\n"}
-            <input type="text" value={pass} onChange={(e) => setPass(e.target.value)}/>
-          </label>
-        </form>
-      </header>
+    <div className={`app ${theme}`}>
+      <UserProfile user={user} />
+      <FavoriteDestinations destinations={destinations} />
+      <ActivityHistory activities={activities} />
+      <Settings theme={theme} updateTheme={updateTheme} />
     </div>
   );
 }
-
-const root= ReactDOM.createRoot(document.getElementById('root'));
-root.render(<login />)
 
 export default App;
