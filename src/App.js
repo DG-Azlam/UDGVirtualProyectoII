@@ -1,25 +1,26 @@
 import React, { useState } from 'react';
-import UserProfile from './components/UserProfile';
-import FavoriteDestinations from './components/FavoriteDestinations';
-import ActivityHistory from './components/ActivityHistory';
-import Settings from './components/Settings';
-import userData from './data';
+import UserPage from './pages/UserPage';
+import MainPage from './pages/MainPage'; 
 import './App.css';
 
 function App() {
-  const [user, setUser] = useState(userData.user);
-  const [destinations, setDestinations] = useState(userData.destinations);
-  const [activities, setActivities] = useState(userData.activities);
-  const [theme, setTheme] = useState('light');
+  const [activeSection, setActiveSection] = useState('user');
 
-  const updateTheme = (newTheme) => setTheme(newTheme);
+  const handleSectionChange = (section) => {
+    setActiveSection(section);
+  };
 
   return (
-    <div className={`app ${theme}`}>
-      <UserProfile user={user} />
-      <FavoriteDestinations destinations={destinations} />
-      <ActivityHistory activities={activities} />
-      <Settings theme={theme} updateTheme={updateTheme} />
+    <div className="app">
+      <nav className="navbar">
+        <button onClick={() => handleSectionChange('user')}>Sección Usuario</button>
+        <button onClick={() => handleSectionChange('main')}>Sección Principal</button>
+      </nav>
+
+      <div className="section">
+        {activeSection === 'user' && <UserPage />}
+        {activeSection === 'main' && <MainPage />}
+      </div>
     </div>
   );
 }

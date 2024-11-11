@@ -1,19 +1,11 @@
 import React from 'react';
 //import '../App.css';
 
-function Settings({ theme, updateTheme }) {
-    const handleThemeChange = (e) => updateTheme(e.target.value);
-
+function Settings() {
     return (
         <div className="settings container">
-            <h3>Configuración</h3>
-            <label>
-                Tema:
-            <select value={theme} onChange={handleThemeChange}>
-                <option value="light">Claro</option>
-                <option value="dark">Oscuro</option>
-            </select>
-            </label>
+            <h2>Configuración de la Página</h2>
+            {/*  Agregar otras configuraciones aquí */}
         </div>
     );
 }
